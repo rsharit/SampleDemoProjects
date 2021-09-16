@@ -7,6 +7,10 @@ import static io.restassured.RestAssured.given;
 
 public class GetRequestAW extends BaseRequest {
 
+    public GetRequestAW(String baseUrl){
+        super(baseUrl);
+    }
+
     public <T> void setQueryParameter(String key, T value){
         getRequestSpecification().param(key, value);
     }
@@ -16,6 +20,7 @@ public class GetRequestAW extends BaseRequest {
     }
 
     public Response get(){
-        Response response = given().spec(getRequestSpecification()).get().then().extract().response();
+        Response response = given().relaxedHTTPSValidation().spec(getRequestSpecification()).get().then().extract().response();
+        return response;
     }
 }

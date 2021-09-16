@@ -20,6 +20,8 @@ public class CityResponse {
     private int id;
     private String name;
     private int cod;
+    private Rain rain;
+
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
     public Coord getCoord() {
@@ -125,6 +127,10 @@ public class CityResponse {
     public void setCod(int cod) {
         this.cod = cod;
     }
+
+    public Rain getRain() { return rain; }
+
+    public void setRain(Rain rain) { this.rain = rain; }
 
     public Map<String, Object> getAdditionalProperties() {
         return additionalProperties;

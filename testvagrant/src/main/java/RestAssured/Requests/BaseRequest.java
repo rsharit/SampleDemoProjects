@@ -9,8 +9,8 @@ public class BaseRequest{
     RequestSpecification requestSpecification = null;
 
     public BaseRequest(){
-
     }
+
     public BaseRequest(String baseUrl){
         this.requestSpecification = RestAssured.given().baseUri(baseUrl);
     }

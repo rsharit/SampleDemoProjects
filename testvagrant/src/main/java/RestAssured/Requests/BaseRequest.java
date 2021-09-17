@@ -22,4 +22,8 @@ public class BaseRequest{
     public void setRequestSpecification(RequestSpecification requestSpecification) {
         this.requestSpecification = requestSpecification;
     }
+
+    public boolean validateResponseCode(int expectedStatusCode, int actualStatusCode){
+        return actualStatusCode == expectedStatusCode;
+    }
 }

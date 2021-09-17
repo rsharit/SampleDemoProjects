@@ -1,4 +1,4 @@
-package util.deserializer;
+package utils.deserializer;
 
 import org.apache.juneau.json.JsonParser;
 import org.apache.juneau.parser.ParseException;

@@ -1,4 +1,4 @@
-package util.serializer;
+package utils.serializer;
 
 import org.apache.juneau.json.JsonSerializer;
 import org.apache.juneau.serializer.*;

@@ -1,7 +1,8 @@
-package weather.pojo.api.queryparam.city;
+package pojo.api.queryparam.city;
 
-import weather.pojo.*;
-import java.util.ArrayList;
+import pojo.*;
+//import weather.pojo.*;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

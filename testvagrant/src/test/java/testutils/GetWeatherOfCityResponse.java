@@ -4,6 +4,9 @@ import Constants.AWConstants;
 import RestAssured.AccuWeather.GetRequestAW;
 import io.restassured.response.Response;
 
+/**
+ * wrapper class containing different get methods depending on need
+ */
 public class GetWeatherOfCityResponse {
     final String baseUrl = AWConstants.baseURl;
     final String basePath = AWConstants.basePath;

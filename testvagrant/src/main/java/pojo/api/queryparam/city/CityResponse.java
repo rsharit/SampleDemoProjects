@@ -1,12 +1,12 @@
 package pojo.api.queryparam.city;
 
 import pojo.*;
-//import weather.pojo.*;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class CityResponse {
@@ -23,6 +23,7 @@ public class CityResponse {
     private int id;
     private String name;
     private int cod;
+    @JsonIgnore
     private Rain rain;
 
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();

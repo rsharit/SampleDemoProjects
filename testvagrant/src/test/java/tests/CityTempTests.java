@@ -1,16 +1,17 @@
 package tests;
 
-
-import Constants.AWConstants;
 import CustomedExceptions.OutOfPermissibleRange;
-import RestAssured.AccuWeather.GetRequestAW;
 import io.restassured.response.Response;
 import org.apache.juneau.parser.ParseException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pojo.api.queryparam.city.CityResponse;
 
-
+/**
+ * TestNG class containing demo tests
+ * compareTempOfMexicoDelhi_WithinRange - passes
+ * compareTempOfMexicoDelhi_OutOfRange - fails throwing exception
+ */
 public class CityTempTests extends BaseTest {
 
     @Test
@@ -46,6 +47,7 @@ public class CityTempTests extends BaseTest {
 
 
         }catch(ParseException parseExcep){
+            parseExcep.printStackTrace();
             Assert.fail();
         } catch (OutOfPermissibleRange outOfPermissibleRange) {
             outOfPermissibleRange.printStackTrace();

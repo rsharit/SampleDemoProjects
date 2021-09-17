@@ -1,10 +1,13 @@
 package RestAssured.Requests;
 
 import io.restassured.RestAssured;
-import io.restassured.http.ContentType;
-import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
+/**
+ * This is base class for API request.
+ * This contains reference variable of RequestSpecification
+ * Common methods can be written here.
+ */
 public class BaseRequest{
     RequestSpecification requestSpecification = null;
 
@@ -23,6 +26,12 @@ public class BaseRequest{
         this.requestSpecification = requestSpecification;
     }
 
+    /**
+     * returns boolean value after comparing two int values
+     * @param expectedStatusCode
+     * @param actualStatusCode
+     * @return
+     */
     public boolean validateResponseCode(int expectedStatusCode, int actualStatusCode){
         return actualStatusCode == expectedStatusCode;
     }

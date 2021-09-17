@@ -2,9 +2,11 @@ package RestAssured.AccuWeather;
 
 import RestAssured.Requests.BaseRequest;
 import io.restassured.response.Response;
-
 import static io.restassured.RestAssured.given;
 
+/**
+ * Request for Get verb
+ */
 public class GetRequestAW extends BaseRequest {
 
     public GetRequestAW(String baseUrl){
@@ -19,6 +21,10 @@ public class GetRequestAW extends BaseRequest {
         getRequestSpecification().basePath(basePath);
     }
 
+    /**
+     *
+     * @return response of Get verb request
+     */
     public Response get(){
         Response response = given().relaxedHTTPSValidation().spec(getRequestSpecification()).get().then().extract().response();
         return response;

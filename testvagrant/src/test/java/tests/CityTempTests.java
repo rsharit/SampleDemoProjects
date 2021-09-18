@@ -55,8 +55,6 @@ public class CityTempTests extends BaseTest {
         } finally{
 
         }
-
-
     }
 
     @Test
@@ -102,4 +100,5 @@ public class CityTempTests extends BaseTest {
 
 
     }
+
 }

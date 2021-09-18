@@ -14,7 +14,8 @@ public class GetRequestAW extends BaseRequest {
     }
 
     public <T> void setQueryParameter(String key, T value){
-        getRequestSpecification().param(key, value);
+        getRequestSpecification().queryParam(key, value);
+        //getRequestSpecification().param(key, value);
     }
 
     public void setBasePath(String basePath){

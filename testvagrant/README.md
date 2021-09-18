@@ -17,6 +17,7 @@ Once you install IntelliJ(or any other IDE of your choice), start it. On startup
 <li>Choose the directory at which you have cloned the code</li>
 <li>Go to testvagrant directory</li>
 <li>Click and pom.xml file and then OK button</li>
+<li>Choose open as project on Pop up</li>
 <li>Allow some time for IDE to fetch dependencies</li>
 <li>Try building code to check if everything works fine from Menu->Build->BuildProject</li>
 </ul>

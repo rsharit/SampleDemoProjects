@@ -1,0 +1,17 @@
+{
+  "name": "mobile_automation",
+  "version": "1.0.0",
+  "description": "This is sample mobile project using JS",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha 'test/*.js' --recursive --timeout 60000 --exit"
+  },
+  "dependencies": {
+    "assert": "^2.0.0",
+    "chai": "^4.1.2",
+    "mocha": "^8.0.1",
+    "webdriverio": "^7.2.0"
+  },
+  "author": "rsharit",
+  "license": "ISC"
+}

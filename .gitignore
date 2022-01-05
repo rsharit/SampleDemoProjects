@@ -1,3 +1,4 @@
 # Default ignored files
 /testvagrant/.idea
 /testvagrant/target
+/mobile/js/node_modules

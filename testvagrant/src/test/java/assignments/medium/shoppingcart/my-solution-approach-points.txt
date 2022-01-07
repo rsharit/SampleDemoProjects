@@ -1,0 +1,8 @@
+items in store - Milk, apple, newspaper
+store,
+    - employees
+    - commodities
+    -
+
+* total quantity
+*

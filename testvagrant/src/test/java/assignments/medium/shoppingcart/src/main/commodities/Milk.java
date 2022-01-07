@@ -3,7 +3,7 @@ package assignments.medium.shoppingcart.src.main.commodities;
 public class Milk extends BaseCommodity{
     private static int price = 10;
     final private String name = "Milk";
-    private static int quantity;
+    private static int quantity = 100;
 
     public int getPrice() {
         return price;

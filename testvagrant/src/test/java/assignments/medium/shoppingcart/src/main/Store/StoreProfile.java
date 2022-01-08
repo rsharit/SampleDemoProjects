@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StoreProfile {
-    String storeName;
-    List<Object> listOfCommodities = new ArrayList<>();
+    // at a run time whole information of the store can be put here.
 
 }

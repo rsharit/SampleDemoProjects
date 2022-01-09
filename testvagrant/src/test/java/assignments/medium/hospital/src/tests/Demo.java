@@ -4,21 +4,39 @@ import assignments.medium.hospital.src.main.PatientInfo.CustomisedDate;
 import assignments.medium.hospital.src.main.PatientInfo.PatientWrapper;
 import assignments.medium.hospital.src.main.helpers.DeserializablePatientWrapper;
 import assignments.medium.hospital.src.main.helpers.SerializablePatientWrapper;
+import assignments.medium.hospital.src.main.hospitalutils.CreateHospital;
 import assignments.medium.hospital.src.main.hospitalutils.CreatePatientProfile;
+import org.apache.juneau.serializer.SerializeException;
+import utils.serializer.Serializer;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Demo {
-    public static void main(String[] args) throws IOException, ClassNotFoundException {
-        SerializablePatientWrapper spw = new SerializablePatientWrapper();
-        DeserializablePatientWrapper dpw = new DeserializablePatientWrapper();
+    public static void main(String[] args)  {
 
-        CreatePatientProfile patient1 = new CreatePatientProfile();
-        patient1.createPatient("Hari Singh", 01, new CustomisedDate());
+        try{
+            // Initializing hospital
+            CreateHospital hospital = new CreateHospital();
 
-        spw.serializePatientWrapper();
-        PatientWrapper temp = dpw.deserializePatientWrapper("src/test/java/assignments/medium/hospital/src/main/resources/myObjects.txt");
-        System.out.println();
+            // Initializing patients
+            for(int i=0; i<10; i++){
+                int randomPinCode = 1 + (int)Math.random()*10;
+                String patientName = "Patient " + i + randomPinCode;
+                hospital.getPatientsList().add(
+                        new CreatePatientProfile().
+                                createPatient(patientName, randomPinCode, new CustomisedDate()));
+
+            }
+
+
+
+
+        }catch(Exception e){
+
+        }
+
 
 
     }

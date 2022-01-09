@@ -1,5 +1,6 @@
 package assignments.medium.hospital.src.main.PatientInfo;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -7,7 +8,7 @@ import java.util.Date;
  * Please add more unit classes needed for patient information
  */
 
-public class PatientWrapper {
+public class PatientWrapper{
     Patient patient;
     Address address;
     ConsultingDoctor consultingDoc;

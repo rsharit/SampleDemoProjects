@@ -7,6 +7,7 @@ import assignments.medium.hospital.src.main.helpers.SerializablePatientWrapper;
 import assignments.medium.hospital.src.main.hospitalutils.CreateHospital;
 import assignments.medium.hospital.src.main.hospitalutils.CreatePatientProfile;
 import org.apache.juneau.serializer.SerializeException;
+import utils.deserializer.Deserializer;
 import utils.serializer.Serializer;
 
 import java.io.IOException;
@@ -30,7 +31,8 @@ public class Demo {
 
             }
 
-
+            // Apply operations
+            // ready for extention
 
 
         }catch(Exception e){

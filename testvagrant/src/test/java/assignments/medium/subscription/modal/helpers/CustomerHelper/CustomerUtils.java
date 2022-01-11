@@ -3,7 +3,13 @@ package assignments.medium.subscription.modal.helpers.CustomerHelper;
 import assignments.medium.subscription.modal.commodity.Commodity;
 import assignments.medium.subscription.modal.customers.Customer;
 
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+
 public class CustomerUtils implements CustomerUtilsI{
+
+    String uniqueIdFile = "src/test/java/assignments/medium/subscription/resources/uniqueIds.txt";
 
     public Customer createCustomer(){
         return new Customer();
@@ -25,10 +31,57 @@ public class CustomerUtils implements CustomerUtilsI{
          * return unique no. generated
          */
 
-        return -1;
+        // Generating 5 digit unique id
+        int uniqueID = (int)(Math.random()*100000);
+
+        try{
+
+            List<Integer> availableIds = readCustomerIdFromFile(uniqueIdFile);
+            if (!availableIds.contains(uniqueID))
+                availableIds.add(uniqueID);
+            else{
+
+                while(availableIds.contains(uniqueID)){
+                    uniqueID = (int)(Math.random()*100000);
+                    if (!availableIds.contains(uniqueID)){
+                        availableIds.add(uniqueID);
+                        break;
+                    }
+
+                }
+            }
+
+
+
+            writeCustomerIdToAFile(uniqueIdFile, String.valueOf(uniqueID));
+
+        }catch(FileNotFoundException e){
+            e.printStackTrace();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return uniqueID;
     }
 
-    private void readCustomerIdFromFile(){};
+    private List<Integer> readCustomerIdFromFile(String filePath) throws IOException {
+        String st;
+        File file = new File(filePath);
+        BufferedReader br
+                = new BufferedReader(new FileReader(file));
 
-    private void writeCustomerIdToAFile(){};
+        List<Integer> availableIds = new ArrayList<>();
+
+
+        while ((st = br.readLine()) != null)
+            availableIds.add(Integer.valueOf(st));
+        return availableIds;
+    }
+
+    private void writeCustomerIdToAFile(String fileName, String uniqueId) throws IOException {
+        BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, true));
+        writer.write(uniqueId + "\n");
+        writer.close();
+    };
 }

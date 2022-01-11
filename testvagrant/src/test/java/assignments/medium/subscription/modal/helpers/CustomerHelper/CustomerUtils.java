@@ -9,12 +9,14 @@ import java.util.List;
 
 public class CustomerUtils implements CustomerUtilsI{
 
-    String uniqueIdFile = "src/test/java/assignments/medium/subscription/resources/uniqueIds.txt";
+    private String uniqueIdFile = "src/test/java/assignments/medium/subscription/resources/uniqueIds.txt";
 
     public Customer createCustomer(){
-        return new Customer();
+        Customer customer = new Customer();
+        int uniqueID = generateCustomerId();
+        customer.setCustomerId(uniqueID);
+        return customer;
     }
-
 
     public void addSubscribedCommodity(Customer customer, Commodity commodity){
         /**
@@ -50,8 +52,6 @@ public class CustomerUtils implements CustomerUtilsI{
 
                 }
             }
-
-
 
             writeCustomerIdToAFile(uniqueIdFile, String.valueOf(uniqueID));
 

@@ -3,6 +3,8 @@ package assignments.medium.subscription.modal.helpers.CustomerHelper;
 import assignments.medium.subscription.modal.commodity.Commodity;
 import assignments.medium.subscription.modal.customers.Customer;
 
+import java.io.IOException;
+
 public interface CustomerUtilsI {
     /**
      * Method to create and return Customer
@@ -24,6 +26,8 @@ public interface CustomerUtilsI {
     private void readCustomerIdFromFile(){};
 
     private void writeCustomerIdToAFile(){};
+
+    private void writeJsonToAFile(String fileName, String json) throws IOException{};
 
 
 }

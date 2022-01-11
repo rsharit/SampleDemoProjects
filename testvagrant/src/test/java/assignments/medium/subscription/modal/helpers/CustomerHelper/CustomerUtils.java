@@ -87,8 +87,17 @@ public class CustomerUtils implements CustomerUtilsI{
     }
 
     private void writeCustomerIdToAFile(String fileName, String uniqueId) throws IOException {
+        /**
+         * note appending text
+         */
         BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, true));
         writer.write(uniqueId + "\n");
+        writer.close();
+    };
+
+    private void writeJsonToAFile(String fileName, String json) throws IOException {
+        BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
+        writer.write(json);
         writer.close();
     };
 }

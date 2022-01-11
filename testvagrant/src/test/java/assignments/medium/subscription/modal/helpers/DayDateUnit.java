@@ -15,6 +15,12 @@ public class DayDateUnit {
         c.setTime(date);
         this.day = new SimpleDateFormat("EEEE").format(date);
     }
+    public DayDateUnit(Date date){
+        this.date = date;
+        Calendar c = Calendar.getInstance();
+        c.setTime(date);
+        this.day = new SimpleDateFormat("EEEE").format(date);
+    }
 
     public Date getDate() {
         return date;

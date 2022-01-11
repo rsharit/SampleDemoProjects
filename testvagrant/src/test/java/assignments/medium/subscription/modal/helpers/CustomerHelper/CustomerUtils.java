@@ -18,11 +18,18 @@ public class CustomerUtils implements CustomerUtilsI{
         return customer;
     }
 
-    public void addSubscribedCommodity(Customer customer, Commodity commodity){
+    public void addSubscribedCommodityBySubCategory(Customer customer, Commodity commodity){
         /**
          * update customer subscribed products
          * fetches if a product is existing, if yes update, if not a add a new key and update its value
          */
+
+        String subCategory = commodity.getSubCategory();
+        if (customer.getCommodities().keySet().contains(subCategory)){
+            List<Commodity> commodityList = customer.getCommodities().get(subCategory);
+            commodityList.add(commodity);
+            customer.getCommodities().put(subCategory, commodityList);
+        }
     }
 
     public int generateCustomerId(){

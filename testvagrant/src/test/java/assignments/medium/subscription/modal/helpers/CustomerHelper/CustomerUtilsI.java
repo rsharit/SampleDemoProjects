@@ -14,7 +14,7 @@ public interface CustomerUtilsI {
      * @param customer
      * @param commodity
      */
-    public void addSubscribedCommodity(Customer customer, Commodity commodity);
+    public void addSubscribedCommodityBySubCategory(Customer customer, Commodity commodity);
 
     /**
      * Generate a unique CustomerID

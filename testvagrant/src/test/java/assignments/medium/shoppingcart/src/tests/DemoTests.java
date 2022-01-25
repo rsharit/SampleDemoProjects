@@ -32,8 +32,6 @@ public class DemoTests {
         int discount = validations.Discount(totalBill);
 
 
-
-
         System.out.println("Customer :"+ rsharit.getName());
         System.out.println("Total Bill :"+ totalBill);
         System.out.println("Discount :"+ discount);

@@ -12,6 +12,7 @@ public class PLTimeStamp {
     String outTime;
     int amountPaid;
     int parkingChargeThatDay;
+    float hoursParkingIsOccupied;
 
     public PLTimeStamp(){
         this.inTime = new Timestamp(System.currentTimeMillis()).toString();

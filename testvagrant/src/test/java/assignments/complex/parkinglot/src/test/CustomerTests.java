@@ -13,4 +13,12 @@ public class CustomerTests {
         PLCustomer customer = parkingLot.initCustomer("DL14CA0624");
         Assert.assertNotNull(customer);
     }
+
+    @Test (description = "Checking ParkingLot's setCustomerCheckout API")
+    public void checkingCustomerCheckoutAPI(){
+        ParkingLot parkingLot = new ParkingLot();
+        PLCustomer customer = parkingLot.initCustomer("DL14CA0624");
+        customer = parkingLot.setCustomerCheckout(customer);
+        Assert.assertNotNull(customer.getLastParking().getOutTime());
+    }
 }

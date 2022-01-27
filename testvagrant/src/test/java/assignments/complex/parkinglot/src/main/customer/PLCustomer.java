@@ -1,5 +1,6 @@
 package assignments.complex.parkinglot.src.main.customer;
 
+import assignments.complex.parkinglot.src.main.parkingSkeleton.TimeHistory.PLTimeStamp;
 import assignments.complex.parkinglot.src.main.parkingSkeleton.TimeHistory.ParkingHistory;
 import lombok.Getter;
 import lombok.Setter;
@@ -8,10 +9,12 @@ import lombok.Setter;
 @Setter
 public class PLCustomer {
     private String name;
+    /* unique no.*/
     private String vehicleNumber;
     private ParkingHistory parkingHistory;
+    private PLTimeStamp lastParking;
 
-    PLCustomer(String vehicleNumber){
+    public PLCustomer(String vehicleNumber){
         this.vehicleNumber = vehicleNumber;
     }
 

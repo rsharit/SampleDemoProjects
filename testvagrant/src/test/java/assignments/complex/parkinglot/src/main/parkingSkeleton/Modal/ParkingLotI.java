@@ -3,6 +3,8 @@ package assignments.complex.parkinglot.src.main.parkingSkeleton.Modal;
 import assignments.complex.parkinglot.src.main.customer.PLCustomer;
 import assignments.complex.parkinglot.src.main.parkingSkeleton.TimeHistory.PLTimeStamp;
 
+import java.util.List;
+
 public interface ParkingLotI {
     /**
      * Init PLTimeStamp
@@ -11,7 +13,7 @@ public interface ParkingLotI {
      * return PLCustomer
      * @return
      */
-    public PLCustomer initCustomer();
+    public PLCustomer initCustomer(String vehicleNumber);
 
     /**
      * to be used by public methods
@@ -49,9 +51,16 @@ public interface ParkingLotI {
     public void updateDaySale();
 
     /**
-     * This method is ensure total parked customers at the moment
+     * This method is fetch total parked customers at the moment
      * @return
      */
-    public PLCustomer getParkedCustomers();
+    public List<PLCustomer> getParkedCustomers();
+
+    /**
+     * Set Customers checkout time from parking
+     */
+    private PLCustomer setCustomerCheckout(PLCustomer customer){
+        return customer;
+    }
 
 }

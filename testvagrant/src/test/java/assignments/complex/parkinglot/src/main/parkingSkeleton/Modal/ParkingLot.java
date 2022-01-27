@@ -86,7 +86,7 @@ public class ParkingLot{
 
         try {
             String filePath = "src/test/java/assignments/complex/parkinglot/src/" +
-                    "main/resources/CustomersJson" + vehicleId + ".json";
+                    "main/resources/CustomersJson/" + vehicleId + ".json";
             String jsonString = serializer.getJsonString(customer);
             readWriteUtils.writeJsonToAFile(filePath, jsonString);
 
@@ -171,9 +171,9 @@ public class ParkingLot{
         long milliSeconds = timestampOut.getTime() - timestampIn.getTime();
         PLTimeUnit time = new PLTimeUnit();
         int seconds = (int)milliSeconds/1000;
-        int hours = (int) seconds/3600;
-        int minutes = (int) (seconds%3600)/60;
-        seconds = (int) (seconds%3600)%60;
+        int hours = seconds/3600;
+        int minutes = (seconds%3600)/60;
+        seconds = (seconds%3600)%60;
         time.setHours(hours);
         time.setMinutes(minutes);
         time.setSeconds(seconds);

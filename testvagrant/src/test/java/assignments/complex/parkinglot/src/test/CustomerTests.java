@@ -21,4 +21,13 @@ public class CustomerTests {
         customer = parkingLot.setCustomerCheckout(customer);
         Assert.assertNotNull(customer.getLastParking().getOutTime());
     }
+
+    @Test
+    public void testCheckingOutOfACustomer(){
+        ParkingLot parkingLot = new ParkingLot();
+        PLCustomer customer = parkingLot.initCustomer("DL14CA0624");
+        customer = parkingLot.setCustomerCheckout(customer);
+        parkingLot.releaseCustomerFromParking(customer);
+        System.out.println();
+    }
 }

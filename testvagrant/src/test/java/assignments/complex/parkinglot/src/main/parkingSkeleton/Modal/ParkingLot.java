@@ -5,6 +5,10 @@ import assignments.complex.parkinglot.src.main.parkingSkeleton.TimeHistory.PLTim
 import assignments.complex.parkinglot.src.main.parkingSkeleton.TimeHistory.PLTimeStamp;
 import assignments.complex.parkinglot.src.main.parkingSkeleton.TimeHistory.ParkingHistory;
 import assignments.complex.parkinglot.src.main.utils.PLReadWriteUtils;
+import com.fasterxml.jackson.core.exc.StreamReadException;
+import com.fasterxml.jackson.databind.DatabindException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.juneau.json.JsonParser;
 import org.apache.juneau.parser.ParseException;
 import org.apache.juneau.serializer.SerializeException;
 import utils.deserializer.Deserializer;
@@ -40,6 +44,15 @@ public class ParkingLot{
              */
             try{
                 String customerDetails = findCustomerToGetDetails(vehicleNumber);
+                /**
+                 * This is backup code in deserializer fails
+
+                String dirPath = "src/test/java/assignments/complex/parkinglot/src/" +
+                        "resources/CustomersJson/" + vehicleNumber + ".json";
+                ObjectMapper objectMapper = new ObjectMapper();
+                customer = objectMapper.readValue(new File(dirPath), PLCustomer.class);
+                */
+
                 customer = deserializer.getDeserializedObj(customerDetails, PLCustomer.class);
             } catch (ParseException e) {
                 e.printStackTrace();
@@ -90,6 +103,8 @@ public class ParkingLot{
             String filePath = "src/test/java/assignments/complex/parkinglot/src/" +
                     "resources/CustomersJson/" + vehicleId + ".json";
             String jsonString = serializer.getJsonString(customer);
+            jsonString = jsonString.replace("\n", "").replace("\t", "");
+            String jsonString2 = "";
             readWriteUtils.writeJsonToAFile(filePath, jsonString);
 
         } catch (SerializeException e) {
@@ -122,7 +137,7 @@ public class ParkingLot{
      * Set Customers checkout time from parking
      */
     // change it back to private method
-    public PLCustomer setCustomerCheckout(PLCustomer customer){
+    private PLCustomer setCustomerCheckout(PLCustomer customer){
         customer.getLastParking().setOutTime(new Timestamp(System.currentTimeMillis()).toString());
         return customer;
     }

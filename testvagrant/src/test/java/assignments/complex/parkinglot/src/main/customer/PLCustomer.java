@@ -17,5 +17,6 @@ public class PLCustomer {
     public PLCustomer(String vehicleNumber){
         this.vehicleNumber = vehicleNumber;
     }
+    public PLCustomer(){};
 
 }

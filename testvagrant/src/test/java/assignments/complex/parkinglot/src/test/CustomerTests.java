@@ -18,7 +18,6 @@ public class CustomerTests {
     public void checkingCustomerCheckoutAPI(){
         ParkingLot parkingLot = new ParkingLot();
         PLCustomer customer = parkingLot.initCustomer("DL14CA0624");
-        customer = parkingLot.setCustomerCheckout(customer);
         Assert.assertNotNull(customer.getLastParking().getOutTime());
     }
 
@@ -26,8 +25,7 @@ public class CustomerTests {
     public void testCheckingOutOfACustomer(){
         ParkingLot parkingLot = new ParkingLot();
         PLCustomer customer = parkingLot.initCustomer("DL14CA0624");
-        customer = parkingLot.setCustomerCheckout(customer);
         parkingLot.releaseCustomerFromParking(customer);
-        System.out.println();
+        Assert.assertEquals(true, customer.getParkingHistory().getCustomerParkingHistory().size()>1);
     }
 }

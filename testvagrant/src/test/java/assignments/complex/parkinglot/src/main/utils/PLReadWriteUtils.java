@@ -78,8 +78,27 @@ public class PLReadWriteUtils {
      * @throws IOException
      */
     public void writeJsonToAFile(String fileName, String json) throws IOException {
+        if (!checkIfFileExists(fileName)){
+            createFile(fileName);
+        }
         BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
         writer.write(json);
         writer.close();
     };
+
+    private boolean checkIfFileExists(String filePath){
+        File file = new File(filePath);
+        return file.exists();
+    }
+
+    private boolean createFile(String fileName){
+        boolean result = false;
+        try {
+            File file = new File(fileName);
+            result = file.createNewFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return  result;
+    }
 }

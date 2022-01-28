@@ -133,7 +133,7 @@ public class ParkingLot{
          * write the customer's data into database (DONE)
          * update the totalsales (partially DONE)
          * update the today's sale (partially DONE)
-         * update active parking customers
+         * update active parking customers (partially DONE)
          */
         customer.getLastParking().setOutTime(new Timestamp(System.currentTimeMillis()).toString());
 

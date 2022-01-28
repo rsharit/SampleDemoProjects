@@ -65,13 +65,15 @@ public class ParkingLot{
      */
     private String findCustomerToGetDetails(String vehicleNumber){
         String dirPath = "src/test/java/assignments/complex/parkinglot/src/" +
-                "main/resources/CustomersJson";
+                "resources/CustomersJson";
         String requiredData = "";
         File directory = new File(dirPath);
         File[] files = directory.listFiles();
         for(File fileName : files){
-            if (fileName.toString().equals(vehicleNumber)){
+            String[] path = fileName.toString().toString().split("/");
+            if (path[path.length-1].startsWith(vehicleNumber)){
                 requiredData = readWriteUtils.readFile(dirPath + "/" + vehicleNumber + ".json");
+                break;
             }
         }
 
@@ -86,7 +88,7 @@ public class ParkingLot{
 
         try {
             String filePath = "src/test/java/assignments/complex/parkinglot/src/" +
-                    "main/resources/CustomersJson/" + vehicleId + ".json";
+                    "resources/CustomersJson/" + vehicleId + ".json";
             String jsonString = serializer.getJsonString(customer);
             readWriteUtils.writeJsonToAFile(filePath, jsonString);
 

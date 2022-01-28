@@ -1,0 +1,21 @@
+{
+	"lastParking": {
+		"amountPaid": 10,
+		"hoursParkingIsOccupied": 1.0,
+		"inTime": "2022-01-28 12:06:38.5",
+		"outTime": "2022-01-28 12:07:19.557",
+		"parkingChargeThatDay": 10
+	},
+	"parkingHistory": {
+		"customerParkingHistory": [
+			{
+				"amountPaid": 10,
+				"hoursParkingIsOccupied": 1.0,
+				"inTime": "2022-01-28 12:06:38.5",
+				"outTime": "2022-01-28 12:07:19.557",
+				"parkingChargeThatDay": 10
+			}
+		]
+	},
+	"vehicleNumber": "DL14CA0624"
+}

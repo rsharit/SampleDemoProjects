@@ -7,7 +7,7 @@ import java.util.List;
 public class PLReadWriteUtils {
 
     private String parkingLotCustomersFile = "src/test/java/assignments/complex/parkinglot/src/" +
-            "main/resources/ParkingLotCustomers.txt";
+            "resources/ParkingLotCustomers.txt";
 
     public boolean checkCustomerID(String customerId){
         boolean exists = false;
@@ -94,6 +94,7 @@ public class PLReadWriteUtils {
     private boolean createFile(String fileName){
         boolean result = false;
         try {
+            //fileName = "/Users/rajendersinghharit/Desktop/testVagrant/assignments/SampleDemoProjects/testvagrant/src/test/java/assignments/complex/parkinglot/src/resources/CustomersJson/DL14CA0624.json";
             File file = new File(fileName);
             result = file.createNewFile();
         } catch (IOException e) {

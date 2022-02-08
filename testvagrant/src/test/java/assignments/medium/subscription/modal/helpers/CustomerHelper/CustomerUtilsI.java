@@ -21,7 +21,7 @@ public interface CustomerUtilsI {
     /**
      * Generate a unique CustomerID
      */
-    public int generateCustomerId();
+    private int generateCustomerId(){return 0;};
 
     private void readCustomerIdFromFile(){};
 

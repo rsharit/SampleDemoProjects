@@ -7,24 +7,33 @@ import org.testng.annotations.Test;
 
 public class CustomerTests {
 
-    @Test (description = "Checking ParkingLot's initCustomer API")
-    public void initCustomerTest(){
+    @Test (description = "Checking ParkingLot's initCustomer API to get non subscribed customer")
+    public void getNonSubscribedCusomer(){
         ParkingLot parkingLot = new ParkingLot();
-        PLCustomer customer = parkingLot.initCustomer("DL14CA0624");
+        PLCustomer customer = parkingLot.initCustomer("DL14CA0624", false);
         Assert.assertNotNull(customer);
     }
 
-    @Test (description = "Checking ParkingLot's setCustomerCheckout API")
-    public void checkingCustomerCheckoutAPI(){
+    @Test (description = "Checking ParkingLot's initCustomer API to get subscribed customer")
+    public void getSubscribedCusomer() {
         ParkingLot parkingLot = new ParkingLot();
-        PLCustomer customer = parkingLot.initCustomer("DL14CA0624");
-        Assert.assertNotNull(customer.getLastParking().getOutTime());
+        PLCustomer customer = parkingLot.initCustomer("DL14CA0625", true);
+        Assert.assertNotNull(customer);
     }
 
-    @Test
-    public void testCheckingOutOfACustomer(){
+
+    @Test(description = "Releasing a non subscribed customer from parking ")
+    public void testReleasingNonSubscribedCustomer(){
         ParkingLot parkingLot = new ParkingLot();
-        PLCustomer customer = parkingLot.initCustomer("DL14CA0624");
+        PLCustomer customer = parkingLot.initCustomer("DL14CA0624", false);
+        parkingLot.releaseCustomerFromParking(customer);
+        Assert.assertEquals(true, customer.getParkingHistory().getCustomerParkingHistory().size()>1);
+    }
+
+    @Test(description = "Releasing a non subscribed customer from parking ")
+    public void testReleasingSubscribedCustomer(){
+        ParkingLot parkingLot = new ParkingLot();
+        PLCustomer customer = parkingLot.initCustomer("DL14CA0625", true);
         parkingLot.releaseCustomerFromParking(customer);
         Assert.assertEquals(true, customer.getParkingHistory().getCustomerParkingHistory().size()>1);
     }

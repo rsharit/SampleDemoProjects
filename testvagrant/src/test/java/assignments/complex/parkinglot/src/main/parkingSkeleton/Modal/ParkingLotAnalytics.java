@@ -25,7 +25,6 @@ public class ParkingLotAnalytics {
          * else simply write the value to the file
          */
 
-
     }
 
     public void updateTodaySale(){
@@ -40,6 +39,9 @@ public class ParkingLotAnalytics {
 
     public void removeCustomerFromParking(PLCustomer customer){
         if (currentParkedCustomer.keySet().contains(customer.getVehicleNumber()))
+        /**
+         * write customer details to parkingLotCustomers.txt
+         */
             currentParkedCustomer.remove(customer.getVehicleNumber());
         else {
             /**

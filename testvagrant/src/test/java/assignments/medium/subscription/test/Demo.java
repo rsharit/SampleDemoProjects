@@ -19,22 +19,15 @@ public class Demo {
         CustomerUtils customerUtils = new CustomerUtils();
         CommodityUtils commodityUtils = new CommodityUtils();
         Customer customer1 = customerUtils.createCustomer();
-        Commodity commodity1 = new Commodity();
-        Commodity commodity2 = new Commodity();
-        commodity1.getSubscribedDates().add(new DayDateUnit());
-        commodity2.getSubscribedDates().add(new DayDateUnit());
-        commodity1.setName("Toi");
-        commodity2.setName("HT");
-        commodity1.setSubCategory("Newspaper");
-        commodity1.setCategory("BooksAndPeriodicals");
-        commodity2.setSubCategory("Newspaper");
-        commodity2.setCategory("BooksAndPeriodicals");
+
+        Commodity commodity1 = commodityUtils.getCommodity("BooksAndPeriodicals",
+                "NewsPaper", "TOI", new Date());
+
+        Commodity commodity2 = commodityUtils.getCommodity("BooksAndPeriodicals",
+                "NewsPaper", "HT", new Date());
 
         Commodity commodity3 = commodityUtils.getCommodity("BooksAndPeriodicals",
                 "NewsPaper", "EconomicTimes", new Date());
-
-
-
 
         List<Commodity> commodityList = new ArrayList<>();
         commodityList.add(commodity1);

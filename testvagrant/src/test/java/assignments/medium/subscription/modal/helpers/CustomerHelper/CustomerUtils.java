@@ -32,7 +32,7 @@ public class CustomerUtils implements CustomerUtilsI{
         }
     }
 
-    public int generateCustomerId(){
+    private int generateCustomerId(){
         /**
          * use readCustomerIdFromFile to read unique ids
          * generate a random no.
@@ -95,6 +95,12 @@ public class CustomerUtils implements CustomerUtilsI{
         writer.close();
     };
 
+    /**
+     *
+     * @param fileName
+     * @param json
+     * @throws IOException
+     */
     private void writeJsonToAFile(String fileName, String json) throws IOException {
         BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
         writer.write(json);

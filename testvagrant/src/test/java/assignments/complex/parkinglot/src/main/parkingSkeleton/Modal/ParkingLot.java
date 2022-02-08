@@ -1,14 +1,11 @@
 package assignments.complex.parkinglot.src.main.parkingSkeleton.Modal;
 
 import assignments.complex.parkinglot.src.main.customer.PLCustomer;
+import assignments.complex.parkinglot.src.main.customer.PLSubscribedCustomer;
 import assignments.complex.parkinglot.src.main.parkingSkeleton.TimeHistory.PLTimeUnit;
 import assignments.complex.parkinglot.src.main.parkingSkeleton.TimeHistory.PLTimeStamp;
 import assignments.complex.parkinglot.src.main.parkingSkeleton.TimeHistory.ParkingHistory;
 import assignments.complex.parkinglot.src.main.utils.PLReadWriteUtils;
-import com.fasterxml.jackson.core.exc.StreamReadException;
-import com.fasterxml.jackson.databind.DatabindException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import org.apache.juneau.json.JsonParser;
 import org.apache.juneau.parser.ParseException;
 import org.apache.juneau.serializer.SerializeException;
 import utils.deserializer.Deserializer;
@@ -19,20 +16,20 @@ import java.io.IOException;
 import java.sql.Timestamp;
 import java.util.List;
 
-public class ParkingLot{
+public class ParkingLot implements ParkingLotI{
     ParkingLotAnalytics parkingLotAnalytics = new ParkingLotAnalytics();
     PLReadWriteUtils readWriteUtils = new PLReadWriteUtils();
     Deserializer deserializer = new Deserializer();
     Serializer serializer = new Serializer();
 
-    public PLCustomer initCustomer(String vehicleNumber) {
+    public PLCustomer initCustomer(String vehicleNumber, boolean subscribed) {
         boolean newCustomer = false;
         newCustomer = readWriteUtils.checkCustomerID(vehicleNumber);
         PLCustomer customer = null;
 
         /* not existing customer */
         if (!newCustomer){
-            customer = new PLCustomer(vehicleNumber);
+            customer = getRequiredCustomer(vehicleNumber, subscribed);
             ParkingHistory parkingHistory = new ParkingHistory();
             customer.setParkingHistory(parkingHistory);
             PLTimeStamp timeStamp = new PLTimeStamp();
@@ -46,15 +43,12 @@ public class ParkingLot{
                 String customerDetails = findCustomerToGetDetails(vehicleNumber);
                 /**
                  * This is backup code in deserializer fails
-
-                String dirPath = "src/test/java/assignments/complex/parkinglot/src/" +
-                        "resources/CustomersJson/" + vehicleNumber + ".json";
                 ObjectMapper objectMapper = new ObjectMapper();
                 customer = objectMapper.readValue(new File(dirPath), PLCustomer.class);
                 */
 
-                customer = deserializer.getDeserializedObj(customerDetails, PLCustomer.class);
-            } catch (ParseException e) {
+                customer = getRequiredDeserialisedCustomer(customerDetails, subscribed);
+            } catch (Exception e) {
                 e.printStackTrace();
             }
 
@@ -195,6 +189,34 @@ public class ParkingLot{
         time.setMinutes(minutes);
         time.setSeconds(seconds);
         return time;
+    }
+
+
+    private PLCustomer getRequiredCustomer(String vehicleNumber, boolean subscribed){
+        if (!subscribed){
+            return new PLCustomer(vehicleNumber);
+        } else
+            return new PLSubscribedCustomer(vehicleNumber);
+    }
+
+    private PLCustomer getRequiredDeserialisedCustomer(String customerDetails, boolean subscribed){
+        PLCustomer customer = null;
+        if (!subscribed){
+            try {
+                customer =  deserializer.getDeserializedObj(customerDetails, PLCustomer.class);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            //return new PLCustomer(vehicleNumber);
+        } else {
+                try {
+                    customer = deserializer.getDeserializedObj(customerDetails, PLSubscribedCustomer.class);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+            }
+        return customer;
+
     }
 
 

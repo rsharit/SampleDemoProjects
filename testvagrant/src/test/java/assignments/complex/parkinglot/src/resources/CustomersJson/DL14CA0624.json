@@ -1,1 +1,56 @@
-{"lastParking": {"amountPaid": 2630,"hoursParkingIsOccupied": 263.0,"inTime": "2022-01-28 16:28:19.084","outTime": "2022-02-08 15:29:54.178","parkingChargeThatDay": 10},"parkingHistory": {"customerParkingHistory": [{"amountPaid": 10,"hoursParkingIsOccupied": 1.0,"inTime": "2022-01-28 16:28:19.084","outTime": "2022-01-28 16:28:19.084","parkingChargeThatDay": 10},{"amountPaid": 10,"hoursParkingIsOccupied": 1.0,"inTime": "2022-01-28 16:28:19.084","outTime": "2022-01-28 16:50:56.417","parkingChargeThatDay": 10},{"amountPaid": 10,"hoursParkingIsOccupied": 1.0,"inTime": "2022-01-28 16:28:19.084","outTime": "2022-01-28 16:52:28.619","parkingChargeThatDay": 10},{"amountPaid": 2620,"hoursParkingIsOccupied": 262.0,"inTime": "2022-01-28 16:28:19.084","outTime": "2022-02-08 14:00:30.347","parkingChargeThatDay": 10},{"amountPaid": 2630,"hoursParkingIsOccupied": 263.0,"inTime": "2022-01-28 16:28:19.084","outTime": "2022-02-08 15:29:54.178","parkingChargeThatDay": 10}]},"vehicleNumber": "DL14CA0624"}
+{
+	"lastParking": {
+		"amountPaid": 3140,
+		"hoursParkingIsOccupied": 314.0,
+		"inTime": "2022-01-28 16:28:19.084",
+		"outTime": "2022-02-10 18:48:01.32",
+		"parkingChargeThatDay": 10
+	},
+	"parkingHistory": {
+		"customerParkingHistory": [
+			{
+				"amountPaid": 10,
+				"hoursParkingIsOccupied": 1.0,
+				"inTime": "2022-01-28 16:28:19.084",
+				"outTime": "2022-01-28 16:28:19.084",
+				"parkingChargeThatDay": 10
+			},
+			{
+				"amountPaid": 10,
+				"hoursParkingIsOccupied": 1.0,
+				"inTime": "2022-01-28 16:28:19.084",
+				"outTime": "2022-01-28 16:50:56.417",
+				"parkingChargeThatDay": 10
+			},
+			{
+				"amountPaid": 10,
+				"hoursParkingIsOccupied": 1.0,
+				"inTime": "2022-01-28 16:28:19.084",
+				"outTime": "2022-01-28 16:52:28.619",
+				"parkingChargeThatDay": 10
+			},
+			{
+				"amountPaid": 2620,
+				"hoursParkingIsOccupied": 262.0,
+				"inTime": "2022-01-28 16:28:19.084",
+				"outTime": "2022-02-08 14:00:30.347",
+				"parkingChargeThatDay": 10
+			},
+			{
+				"amountPaid": 2630,
+				"hoursParkingIsOccupied": 263.0,
+				"inTime": "2022-01-28 16:28:19.084",
+				"outTime": "2022-02-08 15:29:54.178",
+				"parkingChargeThatDay": 10
+			},
+			{
+				"amountPaid": 3140,
+				"hoursParkingIsOccupied": 314.0,
+				"inTime": "2022-01-28 16:28:19.084",
+				"outTime": "2022-02-10 18:48:01.32",
+				"parkingChargeThatDay": 10
+			}
+		]
+	},
+	"vehicleNumber": "DL14CA0624"
+}

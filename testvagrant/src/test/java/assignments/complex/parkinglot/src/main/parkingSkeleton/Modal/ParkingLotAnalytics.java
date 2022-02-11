@@ -38,7 +38,7 @@ public class ParkingLotAnalytics {
     }
 
     public void removeCustomerFromParking(PLCustomer customer){
-        if (currentParkedCustomer.keySet().contains(customer.getVehicleNumber()))
+        if (currentParkedCustomer.containsKey(customer.getVehicleNumber()))
         /**
          * write customer details to parkingLotCustomers.txt
          */

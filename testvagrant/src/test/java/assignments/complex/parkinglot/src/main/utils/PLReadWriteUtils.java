@@ -4,19 +4,16 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PLReadWriteUtils {
+public class PLReadWriteUtils implements PLReadWriteUtilsI{
 
-    private String parkingLotCustomersFile = "src/test/java/assignments/complex/parkinglot/src/" +
+    private final String parkingLotCustomersFile = "src/test/java/assignments/complex/parkinglot/src/" +
             "resources/ParkingLotCustomers.txt";
 
     public boolean checkCustomerID(String customerId){
         boolean exists = false;
         try{
             List<String> availableIds = readCustomerIdFromFile(parkingLotCustomersFile);
-            if (availableIds.contains(customerId))
-                exists = true;
-            else
-                exists = false;
+            exists = availableIds.contains(customerId);
 
             //writeCustomerIdToAFile(parkingLotCustomersFile, customerId);
 
@@ -69,7 +66,7 @@ public class PLReadWriteUtils {
         BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, true));
         writer.write(uniqueId + "\n");
         writer.close();
-    };
+    }
 
     /**
      * note : always clearing and writing
@@ -84,7 +81,7 @@ public class PLReadWriteUtils {
         BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
         writer.write(json);
         writer.close();
-    };
+    }
 
     private boolean checkIfFileExists(String filePath){
         File file = new File(filePath);

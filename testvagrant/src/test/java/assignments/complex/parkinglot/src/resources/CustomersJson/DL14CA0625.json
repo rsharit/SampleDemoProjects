@@ -1,1 +1,42 @@
-{"lastParking": {"amountPaid": 10,"hoursParkingIsOccupied": 1.0,"inTime": "2022-02-08 15:36:30.849","outTime": "2022-02-08 15:41:56.108","parkingChargeThatDay": 10},"parkingHistory": {"customerParkingHistory": [{"amountPaid": 10,"hoursParkingIsOccupied": 1.0,"inTime": "2022-02-08 15:36:30.849","outTime": "2022-02-08 15:36:30.85","parkingChargeThatDay": 10},{"amountPaid": 10,"hoursParkingIsOccupied": 1.0,"inTime": "2022-02-08 15:36:30.849","outTime": "2022-02-08 15:41:13.077","parkingChargeThatDay": 10},{"amountPaid": 10,"hoursParkingIsOccupied": 1.0,"inTime": "2022-02-08 15:36:30.849","outTime": "2022-02-08 15:41:56.108","parkingChargeThatDay": 10}]},"vehicleNumber": "DL14CA0625"}
+{
+	"lastParking": {
+		"amountPaid": 510,
+		"hoursParkingIsOccupied": 51.0,
+		"inTime": "2022-02-08 15:36:30.849",
+		"outTime": "2022-02-10 18:49:23.928",
+		"parkingChargeThatDay": 10
+	},
+	"parkingHistory": {
+		"customerParkingHistory": [
+			{
+				"amountPaid": 10,
+				"hoursParkingIsOccupied": 1.0,
+				"inTime": "2022-02-08 15:36:30.849",
+				"outTime": "2022-02-08 15:36:30.85",
+				"parkingChargeThatDay": 10
+			},
+			{
+				"amountPaid": 10,
+				"hoursParkingIsOccupied": 1.0,
+				"inTime": "2022-02-08 15:36:30.849",
+				"outTime": "2022-02-08 15:41:13.077",
+				"parkingChargeThatDay": 10
+			},
+			{
+				"amountPaid": 10,
+				"hoursParkingIsOccupied": 1.0,
+				"inTime": "2022-02-08 15:36:30.849",
+				"outTime": "2022-02-08 15:41:56.108",
+				"parkingChargeThatDay": 10
+			},
+			{
+				"amountPaid": 510,
+				"hoursParkingIsOccupied": 51.0,
+				"inTime": "2022-02-08 15:36:30.849",
+				"outTime": "2022-02-10 18:49:23.928",
+				"parkingChargeThatDay": 10
+			}
+		]
+	},
+	"vehicleNumber": "DL14CA0625"
+}

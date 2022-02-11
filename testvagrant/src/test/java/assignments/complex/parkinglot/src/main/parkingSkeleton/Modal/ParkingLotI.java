@@ -1,25 +1,31 @@
 package assignments.complex.parkinglot.src.main.parkingSkeleton.Modal;
 
 import assignments.complex.parkinglot.src.main.customer.PLCustomer;
-import assignments.complex.parkinglot.src.main.customer.PLSubscribedCustomer;
-import assignments.complex.parkinglot.src.main.parkingSkeleton.TimeHistory.PLTimeStamp;
-import assignments.complex.parkinglot.src.main.parkingSkeleton.TimeHistory.PLTimeUnit;
 import java.util.List;
-
-
 
 
 public interface ParkingLotI{
 
-    public PLCustomer initCustomer(String vehicleNumber, boolean subscribed);
+    /**
+     *
+     * @param vehicleNumber
+     * @param subscribed
+     * @return
+     */
+    PLCustomer initCustomer(String vehicleNumber, boolean subscribed);
 
     /**
      * This method is ensure total parked customers at the moment
      * @return
      */
-    public List<PLCustomer> getParkedCustomers();
+    List<PLCustomer> getParkedCustomers();
 
-    public PLCustomer releaseCustomerFromParking(PLCustomer customer) ;
+    /**
+     *
+     * @param customer
+     * @return
+     */
+    PLCustomer releaseCustomerFromParking(PLCustomer customer) ;
 
 //    /**
 //     * to be used by public methods

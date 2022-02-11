@@ -1,4 +1,4 @@
-package assignments.complex.parkinglot.src.main.customer.subscription;
+package assignments.complex.parkinglot.src.main.parkingSkeleton;
 
 import lombok.Getter;
 import lombok.Setter;

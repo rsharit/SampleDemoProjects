@@ -1,7 +1,7 @@
 package assignments.complex.parkinglot.src.main.parkingSkeleton.Modal;
 
 import assignments.complex.parkinglot.src.main.customer.PLCustomer;
-import assignments.complex.parkinglot.src.main.customer.PLSubscribedCustomer;
+import assignments.complex.parkinglot.src.main.customer.types.PLSubscribedCustomer;
 import assignments.complex.parkinglot.src.main.parkingSkeleton.TimeHistory.PLTimeUnit;
 import assignments.complex.parkinglot.src.main.parkingSkeleton.TimeHistory.PLTimeStamp;
 import assignments.complex.parkinglot.src.main.parkingSkeleton.TimeHistory.ParkingHistory;
@@ -22,6 +22,7 @@ public class ParkingLot implements ParkingLotI{
     Deserializer deserializer = new Deserializer();
     Serializer serializer = new Serializer();
 
+    @Override
     public PLCustomer initCustomer(String vehicleNumber, boolean subscribed) {
         boolean newCustomer = false;
         newCustomer = readWriteUtils.checkCustomerID(vehicleNumber);
@@ -36,7 +37,7 @@ public class ParkingLot implements ParkingLotI{
             customer.setLastParking(timeStamp);
         } else/*existing customer*/{
             /**
-             * find customer, deserialise the customer details into PLCustomer object
+             * find customer, deserialize the customer details into PLCustomer object
              * set PLTimeStamp into PLCustomer
              */
             try{
@@ -47,7 +48,7 @@ public class ParkingLot implements ParkingLotI{
                 customer = objectMapper.readValue(new File(dirPath), PLCustomer.class);
                 */
 
-                customer = getRequiredDeserialisedCustomer(customerDetails, subscribed);
+                customer = getRequiredDeserializedCustomer(customerDetails, subscribed);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -77,7 +78,7 @@ public class ParkingLot implements ParkingLotI{
         File directory = new File(dirPath);
         File[] files = directory.listFiles();
         for(File fileName : files){
-            String[] path = fileName.toString().toString().split("/");
+            String[] path = fileName.toString().split("/");
             if (path[path.length-1].startsWith(vehicleNumber)){
                 requiredData = readWriteUtils.readFile(dirPath + "/" + vehicleNumber + ".json");
                 break;
@@ -97,8 +98,8 @@ public class ParkingLot implements ParkingLotI{
             String filePath = "src/test/java/assignments/complex/parkinglot/src/" +
                     "resources/CustomersJson/" + vehicleId + ".json";
             String jsonString = serializer.getJsonString(customer);
-            jsonString = jsonString.replace("\n", "").replace("\t", "");
-            String jsonString2 = "";
+//            jsonString = jsonString.replace("\n", "").replace("\t", "");
+//            String jsonString2 = "";
             readWriteUtils.writeJsonToAFile(filePath, jsonString);
 
         } catch (SerializeException e) {
@@ -123,6 +124,7 @@ public class ParkingLot implements ParkingLotI{
      * This method is ensure total parked customers at the moment
      * @return
      */
+    @Override
     public List<PLCustomer> getParkedCustomers(){
         return null;
     }
@@ -136,6 +138,7 @@ public class ParkingLot implements ParkingLotI{
         return customer;
     }
 
+    @Override
     public PLCustomer releaseCustomerFromParking(PLCustomer customer) {
         /**
          * calculate the time stayed in the parking (DONE)
@@ -153,13 +156,15 @@ public class ParkingLot implements ParkingLotI{
         int billingHours = calculateRoundedFigureHours(timeStayed);
         customer.getLastParking().setHoursParkingIsOccupied(billingHours);
         customer.getLastParking().setParkingChargeThatDay(10);
+        // update below line as per type of customer
         customer.getLastParking().setAmountPaid(billingHours * 10);
+
 
         customer.getParkingHistory().getCustomerParkingHistory().add(customer.getLastParking());
 
         writeJsonDetails(customer.getVehicleNumber(),customer);
 
-        parkingLotAnalytics.updateTotalSalesSoFar();;
+        parkingLotAnalytics.updateTotalSalesSoFar();
         parkingLotAnalytics.updateTodaySale();
         parkingLotAnalytics.removeCustomerFromParking(customer);
 
@@ -197,9 +202,11 @@ public class ParkingLot implements ParkingLotI{
             return new PLCustomer(vehicleNumber);
         } else
             return new PLSubscribedCustomer(vehicleNumber);
+
+        // Replace above method with factory method
     }
 
-    private PLCustomer getRequiredDeserialisedCustomer(String customerDetails, boolean subscribed){
+    private PLCustomer getRequiredDeserializedCustomer(String customerDetails, boolean subscribed){
         PLCustomer customer = null;
         if (!subscribed){
             try {
